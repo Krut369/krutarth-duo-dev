@@ -5,7 +5,7 @@ interface ToggleSwitchProps {
   leftLabel: string;
   rightLabel: string;
   isRight: boolean;
-  onToggle: () => void;
+  onToggle: (event?: React.MouseEvent) => void;
   className?: string;
 }
 
@@ -23,19 +23,26 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
           "text-sm font-medium transition-colors duration-normal cursor-pointer",
           !isRight ? "text-foreground" : "text-muted-foreground"
         )}
-        onClick={onToggle}
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggle(e);
+        }}
       >
         {leftLabel}
       </label>
       
       <button
-        onClick={onToggle}
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggle(e);
+        }}
         className={cn(
           "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-normal focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
           isRight ? "bg-gradient-primary" : "bg-muted"
         )}
         role="switch"
         aria-checked={isRight}
+        type="button"
       >
         <span
           className={cn(
@@ -50,7 +57,10 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
           "text-sm font-medium transition-colors duration-normal cursor-pointer",
           isRight ? "text-foreground" : "text-muted-foreground"
         )}
-        onClick={onToggle}
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggle(e);
+        }}
       >
         {rightLabel}
       </label>

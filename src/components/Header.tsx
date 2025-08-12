@@ -19,7 +19,10 @@ export const Header: React.FC = () => {
     { label: 'Contact', href: '#contact' },
   ];
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = (href: string, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+    }
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -59,7 +62,10 @@ export const Header: React.FC = () => {
                 leftLabel="Mobile"
                 rightLabel="Web"
                 isRight={mode === 'web'}
-                onToggle={toggleMode}
+                onToggle={(e) => {
+                  e?.stopPropagation();
+                  toggleMode();
+                }}
               />
             </div>
 
@@ -107,7 +113,10 @@ export const Header: React.FC = () => {
                 leftLabel="Mobile"
                 rightLabel="Web"
                 isRight={mode === 'web'}
-                onToggle={toggleMode}
+                onToggle={(e) => {
+                  e?.stopPropagation();
+                  toggleMode();
+                }}
               />
             </div>
 

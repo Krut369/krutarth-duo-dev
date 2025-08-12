@@ -14,6 +14,7 @@ export const usePortfolioMode = () => {
 
   const toggleMode = () => {
     const newMode = mode === 'mobile' ? 'web' : 'mobile';
+    console.log('Toggling mode from', mode, 'to', newMode);
     setMode(newMode);
     localStorage.setItem('portfolioMode', newMode);
   };

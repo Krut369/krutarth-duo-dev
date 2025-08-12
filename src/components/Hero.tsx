@@ -6,6 +6,8 @@ import profilePicture from '@/assets/profile-picture.jpg';
 
 export const Hero: React.FC = () => {
   const { mode } = usePortfolioMode();
+  
+  console.log('Hero component mode:', mode);
 
   const taglines = {
     mobile: "Crafting Beautiful Mobile Experiences",
