@@ -1,28 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import type { PortfolioMode } from '@/context/PortfolioModeProvider';
+import { PortfolioModeContext } from '@/context/PortfolioModeProvider';
 
-export type PortfolioMode = 'mobile' | 'web';
+export type { PortfolioMode };
 
 export const usePortfolioMode = () => {
-  const [mode, setMode] = useState<PortfolioMode>('mobile');
-
-  useEffect(() => {
-    const savedMode = localStorage.getItem('portfolioMode') as PortfolioMode | null;
-    if (savedMode) {
-      setMode(savedMode);
-    }
-  }, []);
-
-  const toggleMode = () => {
-    const newMode = mode === 'mobile' ? 'web' : 'mobile';
-    console.log('Toggling mode from', mode, 'to', newMode);
-    setMode(newMode);
-    localStorage.setItem('portfolioMode', newMode);
-  };
-
-  const setPortfolioMode = (newMode: PortfolioMode) => {
-    setMode(newMode);
-    localStorage.setItem('portfolioMode', newMode);
-  };
-
-  return { mode, toggleMode, setPortfolioMode };
+  const ctx = useContext(PortfolioModeContext);
+  if (!ctx) {
+    throw new Error('usePortfolioMode must be used within a PortfolioModeProvider');
+  }
+  return ctx;
 };
