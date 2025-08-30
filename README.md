@@ -1,73 +1,207 @@
-# Welcome to your Lovable project
+# 🚀 Krutarth Duo Dev - Portfolio
 
-## Project info
+A modern, responsive portfolio website showcasing both **Web Development** and **Mobile Development** skills. Built with React, TypeScript, and Tailwind CSS for a professional and engaging user experience.
 
-**URL**: https://lovable.dev/projects/a1600e1c-2cb0-44ad-863a-054709ca7fc7
+## ✨ Features
 
-## How can I edit this code?
+### 🎯 **Dual Portfolio Modes**
+- **Web Development Portfolio** - Showcasing web technologies and projects
+- **Mobile Development Portfolio** - Highlighting mobile app development skills
+- Seamless switching between modes with dynamic content
 
-There are several ways of editing your application.
+### 🎨 **Modern Design**
+- **Responsive Design** - Works perfectly on all devices
+- **Dark/Light Theme** - Automatic theme switching
+- **Smooth Animations** - Engaging hover effects and transitions
+- **Professional UI** - Built with shadcn/ui components
 
-**Use Lovable**
+### 🛠️ **Interactive Components**
+- **Hero Section** - Compelling introduction with call-to-action
+- **Skills Showcase** - Professional technology icons from React Icons
+- **Project Gallery** - Beautiful project cards with filtering
+- **Experience Timeline** - Professional work history presentation
+- **Contact Form** - Interactive contact section
+- **Responsive Navigation** - Mobile-friendly navigation menu
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a1600e1c-2cb0-44ad-863a-054709ca7fc7) and start prompting.
+## 🚀 Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
+### **Frontend Framework**
+- **React 18** - Modern React with hooks and functional components
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and development server
 
-**Use your preferred IDE**
+### **Styling & UI**
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Beautiful, accessible UI components
+- **CSS Animations** - Smooth transitions and hover effects
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### **Icons & Assets**
+- **React Icons** - Professional technology icons (SiJavascript, SiReact, SiFlutter, etc.)
+- **Custom Gradients** - Beautiful color schemes
+- **Responsive Images** - Optimized for all screen sizes
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### **Development Tools**
+- **ESLint** - Code quality and consistency
+- **PostCSS** - CSS processing
+- **Git** - Version control
 
-Follow these steps:
+## 📱 Portfolio Modes
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### **Web Development Mode**
+- JavaScript (ES6+), TypeScript, HTML5, CSS3/SCSS
+- React.js, Angular, Bootstrap, Tailwind CSS
+- Redux, Context API, React Router
+- MongoDB, MySQL, Firebase, Supabase, AWS
+- Git, VS Code, Docker, Figma, Postman
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### **Mobile Development Mode**
+- Flutter, Dart, React Native
+- Material Design 3, Flame Engine
+- Tiled Maps, Groq AI integration
+- Mobile-specific testing and deployment
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🚀 Getting Started
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### **Prerequisites**
+- Node.js (v18 or higher)
+- npm or yarn package manager
+
+### **Installation**
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd krutarth-duo-dev
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   - Navigate to `http://localhost:8081` (or the port shown in terminal)
+   - The portfolio will automatically reload when you make changes
+
+### **Available Scripts**
+
+```bash
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
 ```
 
-**Edit a file directly in GitHub**
+## 🏗️ Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   ├── Header.tsx      # Navigation header
+│   ├── Hero.tsx        # Hero section
+│   ├── Skills.tsx      # Skills showcase
+│   ├── Projects.tsx    # Project gallery
+│   ├── Experience.tsx  # Work experience
+│   ├── About.tsx       # About section
+│   ├── Contact.tsx     # Contact form
+│   └── Footer.tsx      # Footer
+├── data/               # Portfolio data
+│   └── portfolioData.ts # Skills, projects, experience data
+├── hooks/              # Custom React hooks
+├── context/            # React context providers
+├── lib/                # Utility functions
+└── pages/              # Page components
+```
 
-**Use GitHub Codespaces**
+## 🎨 Customization
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### **Adding New Skills**
+Edit `src/data/portfolioData.ts` to add new skills with appropriate icons:
 
-## What technologies are used for this project?
+```typescript
+export const skills: Skill[] = [
+  {
+    name: 'New Technology',
+    icon: 'IconName', // Must match iconMap in Skills.tsx
+    category: 'web' // or 'mobile'
+  }
+];
+```
 
-This project is built with:
+### **Adding New Projects**
+Add projects to the `projects` array in the same file:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```typescript
+export const projects: Project[] = [
+  {
+    id: 'unique-id',
+    title: 'Project Name',
+    description: 'Project description',
+    techStack: ['React', 'TypeScript', 'Tailwind'],
+    image: 'project-image.png',
+    link: 'https://project-url.com',
+    category: 'web' // or 'mobile'
+  }
+];
+```
 
-## How can I deploy this project?
+### **Modifying Icons**
+Update the `iconMap` in `src/components/Skills.tsx` to use different React Icons:
 
-Simply open [Lovable](https://lovable.dev/projects/a1600e1c-2cb0-44ad-863a-054709ca7fc7) and click on Share -> Publish.
+```typescript
+import { SiNewIcon } from 'react-icons/si';
 
-## Can I connect a custom domain to my Lovable project?
+const iconMap = {
+  'IconName': <SiNewIcon className="h-8 w-8" />
+};
+```
 
-Yes, you can!
+## 🌐 Deployment
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### **Build for Production**
+```bash
+npm run build
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### **Deploy Options**
+- **Vercel** - Recommended for React apps
+- **Netlify** - Great for static sites
+- **GitHub Pages** - Free hosting for open source
+- **AWS S3** - Scalable cloud hosting
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Krutarth Duo Dev**
+- Portfolio showcasing both Web and Mobile development skills
+- Built with modern technologies and best practices
+- Professional design with smooth animations
+
+## 🙏 Acknowledgments
+
+- **shadcn/ui** for beautiful UI components
+- **React Icons** for professional technology icons
+- **Tailwind CSS** for utility-first styling
+- **Vite** for fast development experience
+
+---
+
+⭐ **Star this repository if you found it helpful!**
