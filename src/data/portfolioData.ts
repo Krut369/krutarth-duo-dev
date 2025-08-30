@@ -26,70 +26,69 @@ export interface Experience {
 
 export const skills: Skill[] = [
   // Programming Languages
-  { name: 'JavaScript (ES6+)', icon: '⚡', category: 'web' },
-  { name: 'TypeScript', icon: '📘', category: 'web' },
-  { name: 'HTML5', icon: '🌐', category: 'web' },
-  { name: 'CSS3/SCSS', icon: '🎨', category: 'web' },
-  { name: 'Python', icon: '🐍', category: 'web' },
-  { name: 'C++', icon: '⚙️', category: 'web' },
+  { name: 'JavaScript (ES6+)', icon: 'Zap', category: 'web' },
+  { name: 'TypeScript', icon: 'FileType', category: 'web' },
+  { name: 'HTML5', icon: 'Code', category: 'web' },
+  { name: 'CSS3/SCSS', icon: 'Palette', category: 'web' },
+  { name: 'Python', icon: 'Code2', category: 'web' },
+  { name: 'C++', icon: 'Settings', category: 'web' },
   
   // Frameworks & Libraries
-  { name: 'React.js', icon: '⚛️', category: 'web' },
-  { name: 'React Router DOM', icon: '🔄', category: 'web' },
-  { name: 'Angular', icon: '🅰️', category: 'web' },
-  { name: 'Angular Material', icon: '🎯', category: 'web' },
-  { name: 'Bootstrap', icon: '🎨', category: 'web' },
-  { name: 'Tailwind CSS', icon: '💨', category: 'web' },
+  { name: 'React.js', icon: 'Atom', category: 'web' },
+  { name: 'React Router DOM', icon: 'Route', category: 'web' },
+  { name: 'Angular', icon: 'Circle', category: 'web' },
+  { name: 'Angular Material', icon: 'Target', category: 'web' },
+  { name: 'Bootstrap', icon: 'Palette', category: 'web' },
+  { name: 'Tailwind CSS', icon: 'Wind', category: 'web' },
   
   // State Management
-  { name: 'Redux', icon: '📦', category: 'web' },
-  { name: 'Zustand', icon: '🐻', category: 'web' },
-  { name: 'Context API', icon: '🔗', category: 'web' },
+  { name: 'Redux', icon: 'Package', category: 'web' },
+  { name: 'Zustand', icon: 'Package2', category: 'web' },
+  { name: 'Context API', icon: 'Link', category: 'web' },
   
   // Authentication & Security
-  { name: 'JWT', icon: '🔐', category: 'web' },
-  { name: 'OAuth2', icon: '🔒', category: 'web' },
-  { name: 'Web Security', icon: '🛡️', category: 'web' },
-  { name: 'Accessibility (a11y)', icon: '♿', category: 'web' },
+  { name: 'JWT', icon: 'Key', category: 'web' },
+  { name: 'OAuth2', icon: 'Lock', category: 'web' },
+  { name: 'Web Security', icon: 'Shield', category: 'web' },
+  { name: 'Accessibility (a11y)', icon: 'Accessibility', category: 'web' },
   
   // Databases & Cloud
-  { name: 'MySQL', icon: '🗄️', category: 'web' },
-  { name: 'Firebase Firestore', icon: '🔥', category: 'web' },
-  { name: 'Supabase', icon: '🚀', category: 'web' },
-  { name: 'AWS S3', icon: '☁️', category: 'web' },
-  { name: 'SQLite', icon: '💾', category: 'web' },
+  { name: 'MongoDB', icon: 'Database', category: 'web' },
+  { name: 'MySQL', icon: 'Database', category: 'web' },
+  { name: 'Firebase Firestore', icon: 'Flame', category: 'web' },
+  { name: 'Supabase', icon: 'Rocket', category: 'web' },
+  { name: 'AWS S3', icon: 'CloudIcon', category: 'web' },
+  { name: 'SQLite', icon: 'HardDrive', category: 'web' },
   
   // Developer Tools
-  { name: 'Git/GitHub', icon: '📚', category: 'web' },
-  { name: 'VS Code', icon: '💻', category: 'web' },
-  { name: 'Postman', icon: '📮', category: 'web' },
-  { name: 'Docker', icon: '🐳', category: 'web' },
-  { name: 'Figma', icon: '🎨', category: 'web' },
-  { name: 'Linux Shell', icon: '🐧', category: 'web' },
-  { name: 'Jira', icon: '📋', category: 'web' },
-  { name: 'CI/CD', icon: '🔄', category: 'web' },
+  { name: 'Git/GitHub', icon: 'GitBranch', category: 'web' },
+  { name: 'VS Code', icon: 'Monitor', category: 'web' },
+  { name: 'Postman', icon: 'Send', category: 'web' },
+  { name: 'Docker', icon: 'Box', category: 'web' },
+  { name: 'Figma', icon: 'PenTool', category: 'web' },
+  { name: 'Linux Shell', icon: 'Terminal', category: 'web' },
+  { name: 'Jira', icon: 'ClipboardList', category: 'web' },
+  { name: 'CI/CD', icon: 'RefreshCw', category: 'web' },
   
   // Testing & Methodologies
-  { name: 'Jest', icon: '🧪', category: 'web' },
-  { name: 'Karma', icon: '⚡', category: 'web' },
-  { name: 'React Testing Library', icon: '🔍', category: 'web' },
-  { name: 'Agile/Scrum', icon: '📊', category: 'web' },
+  { name: 'Jest', icon: 'TestTube', category: 'web' },
+  { name: 'Karma', icon: 'Zap', category: 'web' },
+  { name: 'React Testing Library', icon: 'Search', category: 'web' },
+  { name: 'Agile/Scrum', icon: 'BarChart3', category: 'web' },
   
   // Mobile Development Skills
-  // Mobile Development Skills
-{ name: 'Flutter', icon: '📱', category: 'mobile' },
-{ name: 'Dart', icon: '🎯', category: 'mobile' },
-{ name: 'React Native', icon: '⚛️', category: 'mobile' },
-{ name: 'Material Design 3', icon: '🎨', category: 'mobile' },
-{ name: 'Riverpod', icon: '🌊', category: 'mobile' },
-{ name: 'GetX', icon: '🚦', category: 'mobile' },        // Added
-{ name: 'Provider', icon: '🧩', category: 'mobile' },     // Added
-{ name: 'Firebase', icon: '🔥', category: 'mobile' },
-{ name: 'Supabase', icon: '🚀', category: 'mobile' },
-{ name: 'Flame Engine', icon: '🎮', category: 'mobile' },
-{ name: 'Tiled Maps', icon: '🗺️', category: 'mobile' },
-{ name: 'Groq AI', icon: '🤖', category: 'mobile' },
-
+  { name: 'Flutter', icon: 'Smartphone', category: 'mobile' },
+  { name: 'Dart', icon: 'Target', category: 'mobile' },
+  { name: 'React Native', icon: 'Atom', category: 'mobile' },
+  { name: 'Material Design 3', icon: 'Palette', category: 'mobile' },
+  { name: 'Riverpod', icon: 'Waves', category: 'mobile' },
+  { name: 'GetX', icon: 'Navigation', category: 'mobile' },
+  { name: 'Provider', icon: 'Puzzle', category: 'mobile' },
+  { name: 'Firebase', icon: 'Flame', category: 'mobile' },
+  { name: 'Supabase', icon: 'Rocket', category: 'mobile' },
+  { name: 'Flame Engine', icon: 'Gamepad2', category: 'mobile' },
+  { name: 'Tiled Maps', icon: 'Map', category: 'mobile' },
+  { name: 'Groq AI', icon: 'Bot', category: 'mobile' },
 ];
 
 export const projects: Project[] = [

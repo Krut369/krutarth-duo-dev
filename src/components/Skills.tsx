@@ -1,11 +1,88 @@
 import React from 'react';
 import { usePortfolioMode } from '@/hooks/usePortfolioMode';
 import { skills } from '@/data/portfolioData';
-import { Code, Database, Shield, Wrench, TestTube, GraduationCap, Target, Sparkles } from 'lucide-react';
+import { 
+  // Programming Languages
+  SiJavascript, SiTypescript, SiHtml5, SiCss3, SiPython, SiCplusplus,
+  // Frameworks & Libraries
+  SiReact, SiAngular, SiBootstrap, SiTailwindcss, SiRedux,
+  // Mobile Development
+  SiFlutter, SiDart,
+  // Databases & Cloud
+  SiMongodb, SiMysql, SiFirebase, SiSupabase, SiAmazon, SiSqlite,
+  // Developer Tools
+  SiGit, SiGithub, SiDocker, SiFigma, SiPostman,
+  // Testing & Security
+  SiJest, SiAuth0,
+  // Mobile Specific
+  SiMaterialdesign, SiGo, SiTile,
+  // Additional
+  SiNpm, SiYarn, SiWebpack, SiVite, SiNodedotjs, SiExpress
+} from 'react-icons/si';
 
 export const Skills: React.FC = () => {
   const { mode } = usePortfolioMode();
   const filteredSkills = skills.filter(skill => skill.category === mode);
+
+  // Icon mapping for dynamic icon rendering with exact technology icons
+  const iconMap: { [key: string]: React.ReactNode } = {
+    // Core Technologies
+    'Zap': <SiJavascript className="h-8 w-8" />,
+    'FileType': <SiTypescript className="h-8 w-8" />,
+    'Code': <SiHtml5 className="h-8 w-8" />,
+    'Palette': <SiCss3 className="h-8 w-8" />,
+    'Code2': <SiPython className="h-8 w-8" />,
+    'Settings': <SiCplusplus className="h-8 w-8" />,
+    
+    // Frameworks & Libraries
+    'Atom': <SiReact className="h-8 w-8" />,
+    'Route': <SiReact className="h-8 w-8" />,
+    'Circle': <SiAngular className="h-8 w-8" />,
+    'Target': <SiBootstrap className="h-8 w-8" />,
+    'Wind': <SiTailwindcss className="h-8 w-8" />,
+    
+    // State Management
+    'Package': <SiRedux className="h-8 w-8" />,
+    'Package2': <SiRedux className="h-8 w-8" />,
+    'Link': <SiReact className="h-8 w-8" />,
+    
+    // Authentication & Security
+    'Key': <SiAuth0 className="h-8 w-8" />,
+    'Lock': <SiAuth0 className="h-8 w-8" />,
+    'Shield': <SiAuth0 className="h-8 w-8" />,
+    'Accessibility': <SiReact className="h-8 w-8" />,
+    
+    // Databases & Cloud
+    'Database': <SiMongodb className="h-8 w-8" />,
+    'Flame': <SiFirebase className="h-8 w-8" />,
+    'Rocket': <SiSupabase className="h-8 w-8" />,
+    'CloudIcon': <SiAmazon className="h-8 w-8" />,
+    'HardDrive': <SiSqlite className="h-8 w-8" />,
+    
+    // Developer Tools
+    'GitBranch': <SiGit className="h-8 w-8" />,
+    'Monitor': <SiNodedotjs className="h-8 w-8" />,
+    'Send': <SiPostman className="h-8 w-8" />,
+    'Box': <SiDocker className="h-8 w-8" />,
+    'PenTool': <SiFigma className="h-8 w-8" />,
+    'Terminal': <SiNodedotjs className="h-8 w-8" />,
+    'ClipboardList': <SiNpm className="h-8 w-8" />,
+    'RefreshCw': <SiYarn className="h-8 w-8" />,
+    
+    // Testing & Methodologies
+    'TestTube': <SiJest className="h-8 w-8" />,
+    'Search': <SiJest className="h-8 w-8" />,
+    'BarChart3': <SiJest className="h-8 w-8" />,
+    
+    // Mobile Development
+    'Smartphone': <SiReact className="h-8 w-8" />,
+    'Waves': <SiFlutter className="h-8 w-8" />,
+    'Navigation': <SiDart className="h-8 w-8" />,
+    'Puzzle': <SiMaterialdesign className="h-8 w-8" />,
+    'Gamepad2': <SiGo className="h-8 w-8" />,
+    'Map': <SiTile className="h-8 w-8" />,
+    'Bot': <SiGo className="h-8 w-8" />,
+  };
 
   // Group skills by category for better organization
   const skillCategories = {
@@ -34,15 +111,20 @@ export const Skills: React.FC = () => {
 
   const getCategoryIcon = (category: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
-      'Core Technologies': <Code className="h-5 w-5" />,
-      'Frameworks & Libraries': <Code className="h-5 w-5" />,
-      'State Management': <Database className="h-5 w-5" />,
-      'Backend & Database': <Database className="h-5 w-5" />,
-      'Development Tools': <Wrench className="h-5 w-5" />,
-      'Testing & Security': <Shield className="h-5 w-5" />,
-      'Mobile Specific': <Target className="h-5 w-5" />
+      'Core Technologies': <SiJavascript className="h-5 w-5" />,
+      'Frameworks & Libraries': <SiReact className="h-5 w-5" />,
+      'State Management': <SiRedux className="h-5 w-5" />,
+      'Backend & Database': <SiMongodb className="h-5 w-5" />,
+      'Development Tools': <SiGit className="h-5 w-5" />,
+      'Testing & Security': <SiJest className="h-5 w-5" />,
+      'Mobile Specific': <SiFlutter className="h-5 w-5" />
     };
-    return iconMap[category] || <Sparkles className="h-5 w-5" />;
+    return iconMap[category] || <SiReact className="h-5 w-5" />;
+  };
+
+  // Function to render skill icon
+  const renderSkillIcon = (iconName: string) => {
+    return iconMap[iconName] || <SiReact className="h-8 w-8" />;
   };
 
   return (
@@ -95,8 +177,8 @@ export const Skills: React.FC = () => {
                         {/* Skill Content */}
                         <div className="relative z-10 text-center space-y-4">
                           {/* Icon */}
-                          <div className="text-4xl group-hover:scale-110 transition-transform duration-300 group-hover:rotate-3">
-                            {skill.icon}
+                          <div className="text-primary group-hover:scale-110 transition-transform duration-300 group-hover:rotate-3">
+                            {renderSkillIcon(skill.icon)}
                           </div>
                           
                           {/* Skill Name */}
@@ -119,11 +201,11 @@ export const Skills: React.FC = () => {
           <div className="mt-20 text-center animate-fade-in" style={{ animationDelay: '800ms' }}>
             <div className="bg-gradient-card p-8 rounded-2xl shadow-card max-w-3xl mx-auto border border-border/50">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Sparkles className="h-6 w-6 text-primary" />
+                <SiReact className="h-6 w-6 text-primary" />
                 <h3 className="text-xl font-bold text-foreground">
                   Always Learning & Growing
                 </h3>
-                <Sparkles className="h-6 w-6 text-primary" />
+                <SiReact className="h-6 w-6 text-primary" />
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Technology evolves rapidly, and I'm committed to staying current with the latest trends, 
