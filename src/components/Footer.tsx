@@ -11,15 +11,14 @@ export const Footer: React.FC = () => {
           {/* Copyright */}
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <span>© {currentYear} Krutarth Solanki. Built with</span>
-            <Heart className="h-4 w-4 text-red-500 animate-pulse" />
             <span>and modern web technologies.</span>
           </div>
           
           {/* Tech Stack */}
-          <div className="text-sm text-muted-foreground">
+          {/* <div className="text-sm text-muted-foreground">
             Powered by React, TypeScript, and Tailwind CSS
           </div>
-          
+           */}
           {/* Back to Top */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

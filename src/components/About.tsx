@@ -47,17 +47,14 @@ export const About: React.FC = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">3+</div>
+                  <div className="text-2xl font-bold text-primary">1+</div>
                   <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">50+</div>
+                  <div className="text-2xl font-bold text-primary">30+</div>
                   <div className="text-sm text-muted-foreground">Projects Completed</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">100%</div>
-                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-                </div>
+                
               </div>
             </div>
 

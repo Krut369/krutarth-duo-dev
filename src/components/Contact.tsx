@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Linkedin, Github, MapPin, Phone } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin, Phone, FileText, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Contact: React.FC = () => {
@@ -8,19 +8,31 @@ export const Contact: React.FC = () => {
       icon: Mail,
       label: 'Email',
       value: 'krutarth.solanki@email.com',
-      href: 'mailto:krutarth.solanki@email.com'
+      href: 'mailto:krutarthsolanki9@email.com'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       value: 'linkedin.com/in/krutarthsolanki',
-      href: 'https://linkedin.com/in/krutarthsolanki'
+      href: 'https://www.linkedin.com/in/krutarth21'
     },
     {
       icon: Github,
       label: 'GitHub',
       value: 'github.com/krutarthsolanki',
-      href: 'https://github.com/krutarthsolanki'
+      href: 'https://github.com/krut369'
+    },
+    {
+      icon: FileText,
+      label: 'Resume',
+      value: 'Download Resume',
+      href: 'https://drive.google.com/drive/folders/1cIqi6fR5aWtdb-7t9Wq427fF7zMZ5sYu?usp=drive_link'
+    },
+    {
+      icon: Target,
+      label: 'Areas of Interest',
+      value: 'Mobile & Web Development, UI/UX Design, AI Integration',
+      href: null
     },
     {
       icon: MapPin,
@@ -46,7 +58,7 @@ export const Contact: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
             <div className="space-y-8 animate-slide-in">
               <div>
@@ -60,77 +72,53 @@ export const Contact: React.FC = () => {
                 </p>
               </div>
 
-              <div className="space-y-4">
-                {contactInfo.map((item) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <div key={item.label} className="flex items-center gap-4 group">
-                      <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-normal">
-                        <IconComponent className="h-5 w-5 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <div className="text-sm text-muted-foreground">{item.label}</div>
-                        {item.href ? (
-                          <a
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-foreground hover:text-primary transition-colors duration-normal font-medium"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <div className="text-foreground font-medium">{item.value}</div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                             <div className="space-y-4">
+                 {contactInfo.map((item) => {
+                   const IconComponent = item.icon;
+                   return (
+                     <div key={item.label} className="flex items-start gap-3 sm:gap-4 group">
+                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-normal flex-shrink-0">
+                         <IconComponent className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
+                       </div>
+                       <div className="min-w-0 flex-1">
+                         <div className="text-sm text-muted-foreground mb-1">{item.label}</div>
+                         {item.href ? (
+                           <a
+                             href={item.href}
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             className="text-foreground hover:text-primary transition-colors duration-normal font-medium text-sm sm:text-base break-words"
+                           >
+                             {item.value}
+                           </a>
+                         ) : (
+                           <div className="text-foreground font-medium text-sm sm:text-base break-words leading-relaxed">
+                             {item.value}
+                           </div>
+                         )}
+                       </div>
+                     </div>
+                   );
+                 })}
+               </div>
 
-              {/* Social Links */}
-              <div className="pt-8 border-t border-border">
-                <h4 className="text-lg font-medium text-foreground mb-4">Follow Me</h4>
-                <div className="flex gap-4">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-12 h-12 p-0 rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-normal"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-12 h-12 p-0 rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-normal"
-                  >
-                    <Github className="h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-12 h-12 p-0 rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-normal"
-                  >
-                    <Mail className="h-5 w-5" />
-                  </Button>
-                </div>
-              </div>
+
             </div>
 
             {/* Contact Form */}
-            <div className="bg-gradient-card p-8 rounded-xl shadow-card animate-scale-in">
+            <div className="bg-gradient-card p-6 sm:p-8 rounded-xl shadow-card animate-scale-in">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 Send a Message
               </h3>
               
-              <form className="space-y-6">
+              <form className="space-y-4 sm:space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Name
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
@@ -141,7 +129,7 @@ export const Contact: React.FC = () => {
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal text-sm sm:text-base"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -152,7 +140,7 @@ export const Contact: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal text-sm sm:text-base"
                     placeholder="Project discussion"
                   />
                 </div>
@@ -163,14 +151,14 @@ export const Contact: React.FC = () => {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-normal resize-none text-sm sm:text-base"
                     placeholder="Tell me about your project..."
                   />
                 </div>
                 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-primary hover:bg-gradient-secondary text-primary-foreground font-medium py-3 rounded-lg transition-all duration-normal hover:scale-105 shadow-card hover:shadow-card-hover"
+                  className="w-full bg-gradient-primary hover:bg-gradient-secondary text-primary-foreground font-medium py-2.5 sm:py-3 rounded-lg transition-all duration-normal hover:scale-105 shadow-card hover:shadow-card-hover text-sm sm:text-base"
                 >
                   Send Message
                   <Mail className="ml-2 h-4 w-4" />

@@ -3,25 +3,45 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePortfolioMode } from '@/hooks/usePortfolioMode';
 import { projects } from '@/data/portfolioData';
-import mobileProject1 from '@/assets/mobile-project-1.jpg';
-import mobileProject2 from '@/assets/mobile-project-2.jpg';
-import mobileProject3 from '@/assets/mobile-project-3.jpg';
-import webProject1 from '@/assets/web-project-1.jpg';
-import webProject2 from '@/assets/web-project-2.jpg';
-import webProject3 from '@/assets/web-project-3.jpg';
+import campus from '@/assets/campus.png';
+import gurunest from '@/assets/gurunest.png';
+import darkesDunken from '@/assets/darkes_dunken.png';
+import healthyhub from '@/assets/healthyhub.png';
+import inventory from '@/assets/inventory.png';
+import organse from '@/assets/organse.jpeg';
+import ecommerce from '@/assets/ecommerce.png';
+import aiResumeAnalyzer from '@/assets/ai-resume-analyer.png';
+import algorithmVisualize from '@/assets/algorithm-visulize.png';
 
 const imageMap = {
-  '/src/assets/mobile-project-1.jpg': mobileProject1,
-  '/src/assets/mobile-project-2.jpg': mobileProject2,
-  '/src/assets/mobile-project-3.jpg': mobileProject3,
-  '/src/assets/web-project-1.jpg': webProject1,
-  '/src/assets/web-project-2.jpg': webProject2,
-  '/src/assets/web-project-3.jpg': webProject3,
+  '/src/assets/campus.png': campus,
+  '/src/assets/gurunest.png': gurunest,
+  '/src/assets/darkes_dunken.png': darkesDunken,
+  '/src/assets/healthyhub.png': healthyhub,
+  '/src/assets/inventory.png': inventory,
+  '/src/assets/organse.jpeg': organse,
+  '/src/assets/ecommerce.png': ecommerce,
+  '/src/assets/ai-resume-analyer.png': aiResumeAnalyzer,
+  '/src/assets/algorithm-visulize.png': algorithmVisualize,
 };
 
 export const Projects: React.FC = () => {
   const { mode } = usePortfolioMode();
   const filteredProjects = projects.filter(project => project.category === mode);
+
+  const handleProjectClick = (link: string) => {
+    if (link && link !== '#') {
+      window.open(link, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const isGitHubLink = (link: string) => {
+    return link.includes('github.com');
+  };
+
+  const isLiveDemo = (link: string) => {
+    return link.includes('vercel.app') || link.includes('onrender.com') || link.includes('netlify.app');
+  };
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-hero">
@@ -60,18 +80,24 @@ export const Projects: React.FC = () => {
                   
                   {/* Project Actions */}
                   <div className="absolute top-4 right-4 space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-normal">
-                    <Button
-                      size="sm"
-                      className="bg-background/90 hover:bg-background text-foreground p-2 rounded-full"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="bg-background/90 hover:bg-background text-foreground p-2 rounded-full"
-                    >
-                      <Github className="h-4 w-4" />
-                    </Button>
+                    {isLiveDemo(project.link) && (
+                      <Button
+                        size="sm"
+                        className="bg-background/90 hover:bg-background text-foreground p-2 rounded-full"
+                        onClick={() => handleProjectClick(project.link)}
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </Button>
+                    )}
+                    {isGitHubLink(project.link) && (
+                      <Button
+                        size="sm"
+                        className="bg-background/90 hover:bg-background text-foreground p-2 rounded-full"
+                        onClick={() => handleProjectClick(project.link)}
+                      >
+                        <Github className="h-4 w-4" />
+                      </Button>
+                    )}
                   </div>
                 </div>
 
@@ -103,8 +129,11 @@ export const Projects: React.FC = () => {
                     <Button
                       variant="outline"
                       className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-normal"
+                      onClick={() => handleProjectClick(project.link)}
+                      disabled={project.link === '#'}
                     >
-                      View Project
+                      {isLiveDemo(project.link) ? 'Live Demo' : 
+                       isGitHubLink(project.link) ? 'View Code' : 'View Project'}
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
@@ -118,6 +147,7 @@ export const Projects: React.FC = () => {
             <Button
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-full transition-all duration-normal hover:scale-105"
+              onClick={() => window.open('https://github.com/Krut369', '_blank', 'noopener,noreferrer')}
             >
               View All Projects
               <ExternalLink className="ml-2 h-4 w-4" />

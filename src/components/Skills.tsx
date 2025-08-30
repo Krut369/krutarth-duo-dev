@@ -1,22 +1,61 @@
 import React from 'react';
 import { usePortfolioMode } from '@/hooks/usePortfolioMode';
 import { skills } from '@/data/portfolioData';
+import { Code, Database, Shield, Wrench, TestTube, GraduationCap, Target, Sparkles } from 'lucide-react';
 
 export const Skills: React.FC = () => {
   const { mode } = usePortfolioMode();
   const filteredSkills = skills.filter(skill => skill.category === mode);
 
+  // Group skills by category for better organization
+  const skillCategories = {
+    'Core Technologies': filteredSkills.filter(skill => 
+      ['Flutter', 'Dart', 'React Native', 'React.js', 'TypeScript', 'JavaScript (ES6+)'].includes(skill.name)
+    ),
+    'Frameworks & Libraries': filteredSkills.filter(skill => 
+      ['Angular', 'Angular Material', 'Bootstrap', 'Tailwind CSS', 'React Router DOM'].includes(skill.name)
+    ),
+    'State Management': filteredSkills.filter(skill => 
+      ['Redux', 'Zustand', 'Context API', 'Riverpod', 'GetX', 'Provider'].includes(skill.name)
+    ),
+    'Backend & Database': filteredSkills.filter(skill => 
+      ['MongoDB', 'MySQL', 'Firebase', 'Supabase', 'AWS S3', 'SQLite'].includes(skill.name)
+    ),
+    'Development Tools': filteredSkills.filter(skill => 
+      ['Git/GitHub', 'VS Code', 'Docker', 'Figma', 'Postman'].includes(skill.name)
+    ),
+    'Testing & Security': filteredSkills.filter(skill => 
+      ['Jest', 'Karma', 'React Testing Library', 'JWT', 'OAuth2', 'Web Security'].includes(skill.name)
+    ),
+    'Mobile Specific': filteredSkills.filter(skill => 
+      ['Material Design 3', 'Flame Engine', 'Tiled Maps', 'Groq AI'].includes(skill.name)
+    )
+  };
+
+  const getCategoryIcon = (category: string) => {
+    const iconMap: { [key: string]: React.ReactNode } = {
+      'Core Technologies': <Code className="h-5 w-5" />,
+      'Frameworks & Libraries': <Code className="h-5 w-5" />,
+      'State Management': <Database className="h-5 w-5" />,
+      'Backend & Database': <Database className="h-5 w-5" />,
+      'Development Tools': <Wrench className="h-5 w-5" />,
+      'Testing & Security': <Shield className="h-5 w-5" />,
+      'Mobile Specific': <Target className="h-5 w-5" />
+    };
+    return iconMap[category] || <Sparkles className="h-5 w-5" />;
+  };
+
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-hero">
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-20 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               {mode === 'mobile' ? 'Mobile Development' : 'Web Development'} Skills
             </h2>
             <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full"></div>
-            <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
+            <p className="text-muted-foreground mt-6 max-w-3xl mx-auto text-lg">
               {mode === 'mobile' 
                 ? 'Technologies and frameworks I use to build amazing mobile applications'
                 : 'Technologies and tools I use to create modern web applications'
@@ -24,47 +63,72 @@ export const Skills: React.FC = () => {
             </p>
           </div>
 
-          {/* Skills Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 animate-scale-in">
-            {filteredSkills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="group bg-gradient-card p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-normal hover:scale-105 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-center space-y-3">
-                  <div className="text-3xl group-hover:scale-110 transition-transform duration-normal">
-                    {skill.icon}
+          {/* Skills by Category */}
+          <div className="space-y-12 animate-scale-in">
+            {Object.entries(skillCategories).map(([category, categorySkills], categoryIndex) => {
+              if (categorySkills.length === 0) return null;
+              
+              return (
+                <div key={category} className="animate-fade-in" style={{ animationDelay: `${categoryIndex * 150}ms` }}>
+                  {/* Category Header */}
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="text-primary">
+                      {getCategoryIcon(category)}
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground">
+                      {category}
+                    </h3>
+                    <div className="flex-1 h-px bg-gradient-to-r from-primary/50 to-transparent"></div>
                   </div>
-                  <h3 className="font-medium text-foreground group-hover:text-primary transition-colors duration-normal">
-                    {skill.name}
-                  </h3>
-                </div>
-                
-                {/* Skill Level Indicator */}
-                <div className="mt-4">
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div 
-                      className="bg-gradient-primary h-2 rounded-full transition-all duration-slow group-hover:bg-gradient-secondary"
-                      style={{ 
-                        width: `${85 + Math.random() * 15}%` // Random skill level between 85-100%
-                      }}
-                    ></div>
+
+                  {/* Skills Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    {categorySkills.map((skill, skillIndex) => (
+                      <div
+                        key={skill.name}
+                        className="group relative bg-gradient-card p-6 rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:scale-105 animate-fade-in border border-border/50 overflow-hidden"
+                        style={{ animationDelay: `${(categoryIndex * 150) + (skillIndex * 50)}ms` }}
+                      >
+                        {/* Background Pattern */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        {/* Skill Content */}
+                        <div className="relative z-10 text-center space-y-4">
+                          {/* Icon */}
+                          <div className="text-4xl group-hover:scale-110 transition-transform duration-300 group-hover:rotate-3">
+                            {skill.icon}
+                          </div>
+                          
+                          {/* Skill Name */}
+                          <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors duration-300 text-sm leading-tight">
+                            {skill.name}
+                          </h4>
+                        </div>
+
+                        {/* Hover Effect Border */}
+                        <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 transition-all duration-300"></div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Additional Info */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-card p-6 rounded-xl shadow-card max-w-2xl mx-auto">
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                Always Learning
-              </h3>
-              <p className="text-muted-foreground">
+          <div className="mt-20 text-center animate-fade-in" style={{ animationDelay: '800ms' }}>
+            <div className="bg-gradient-card p-8 rounded-2xl shadow-card max-w-3xl mx-auto border border-border/50">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Sparkles className="h-6 w-6 text-primary" />
+                <h3 className="text-xl font-bold text-foreground">
+                  Always Learning & Growing
+                </h3>
+                <Sparkles className="h-6 w-6 text-primary" />
+              </div>
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 Technology evolves rapidly, and I'm committed to staying current with the latest trends, 
-                tools, and best practices in {mode === 'mobile' ? 'mobile' : 'web'} development.
+                tools, and best practices in {mode === 'mobile' ? 'mobile' : 'web'} development. 
+                Every project is an opportunity to learn something new and improve my skills.
               </p>
             </div>
           </div>
